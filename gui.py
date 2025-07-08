@@ -19,9 +19,9 @@ class ModManagerGUI(tb.Window):
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self.on_close)
 
-        icon_path = os.path.join(os.path.dirname(__file__), "icon", "icon.ico")
+        '''icon_path = os.path.join(os.path.dirname(__file__), "icon", "icon.ico")
         if os.path.exists(icon_path):
-            self.iconbitmap(icon_path)
+            self.iconbitmap(icon_path)'''
 
         self.assets_dir = os.path.join(os.path.dirname(__file__), "assets")
         self.icons = {
@@ -316,9 +316,12 @@ class ModManagerGUI(tb.Window):
         os.startfile(self.mods_dir)
 
     def launch_game(self):
-        exe_path = os.path.join(self.game_dir, "soh.exe")
+        if sys.platform == 'linux':
+            exe_path = os.path.join(self.game_dir, "soh.appimage")
+        elif sys.platform == 'win32':
+            exe_path = os.path.join(self.game_dir, "soh.exe")
         if not os.path.isfile(exe_path):
-            messagebox.showerror("Error", "Can't find 'soh.exe'.")
+            messagebox.showerror("Error", "Can't find 'soh executable'.")
             return
 
         def run_and_quit():
