@@ -1,5 +1,6 @@
 # Saildeck-Linux
 A [Saildeck](https://github.com/Wolfeni/Saildeck) mod manager for Ship of Harkinian, originally developed by [Blepy_Derg](https://github.com/Wolfeni).
+Just a little modified to add Linux compatibility.
 
 ![Saildeck_logo](https://github.com/user-attachments/assets/187e5820-cc41-46e6-a94a-68127e50c4bc)
 
